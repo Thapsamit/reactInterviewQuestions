@@ -24,6 +24,48 @@
 - ReactElement lives inside the virtual DOM. It makes the basic node here. ReactElements are rendered into the “real” DOM once you define the elements. 
 - Once a state is changed in React diff algorithm identifies what has been changed. Then DOM gets updated with the result of diff. Virtual DOM is faster than the regular DOM. 
 
+# Q - 3 What is Reconcilition?
+- Reconciliation is the process through which React updates the Browser DOM.
+- the working of the Reconciliation process are:
+  - Virtual DOM  
+  - Diffing Algorithm
+  
+- Browser does the following tasks:
+  - Creates a DOM (Document Object Model) represented by a tree structure.
+  - Renders any new data to the DOM even if data is similar to previous ones.  
+- This rendering by Browser has a sequence of steps and is rather costly in nature. The concept of Virtual DOM used by React makes rendering much faster.
+
+- Virtual DOM: React renders JSX components to the Browser DOM, but keeps a copy of the actual DOM to itself. This copy is the Virtual DOM. We can think of it as the twin brother of the real or Browser DOM. The following actions take place in React:
+
+- React stores a copy of Browser DOM which is called Virtual DOM.
+- When we make changes or add data, React creates a new Virtual DOM and compares it with the previous one.
+- Comparison is done by Diffing Algorithm. The cool fact is all these comparisons take place in the memory and nothing is yet changed in the Browser.
+- After comparing, React goes ahead and creates a new Virtual DOM having the changes. It is to note that as many as 200,000 virtual DOM nodes can be produced in a second.
+- Then it updates the Browser DOM with the least number of changes possible without rendering the entire DOM again. 
+
+
+# Q - 4 Different Lifecycle component and its method?
+- lifecycle of a component can be defined as the series of methods that are invoked in different stages of the component’s existence.
+- **Initialization:** This is the stage where the component is constructed with the given Props and default state. This is done in the constructor of a Component Class.
+- **Initialization:** This is the stage where the component is constructed with the given Props and default state. This is done in the constructor of a Component Class.
+- **Mounting:** Mounting is the stage of rendering the JSX returned by the render method itself.
+- **Updating:** Updating is the stage when the state of a component is updated and the application is repainted.
+- **Unmounting:** As the name suggests Unmounting is the final step of the component lifecycle where the component is removed from the page.
+- **Mounting Methodss:-**
+  - componentWillMount():- This function is invoked right before the component is mounted on the DOM i.e. this function gets invoked once before the render() function is executed for the first time.
+  - componentDidMount():- Similarly as the previous one this function is invoked right after the component is mounted on the DOM i.e. this function gets invoked once after the render() function is executed for the first time
+  
+- **Update Methods:-**
+  - **componentWillReceiveProps() Function:** This is a Props exclusive Function and is independent of States. This function is invoked before a mounted component gets its props reassigned. The function is passed the new set of Props which may or may not be identical to the original Props. 
+  - **shouldComponentUpdate():- By default, every state or props update re-render the page but this may not always be the desired outcome, sometimes it is desired that updating the page will not be repainted. The shouldComponentUpdate() Function fulfills the requirement by letting React know whether the component’s output will be affected by the update or not.
+  - **componentWillUpdate() Function:** As the name clearly suggests, this function is invoked before the component is rerendered i.e. this function gets invoked once before the render() function is executed after the updation of State or Props.
+  - **componentDidUpdate() Function:** Similarly this function is invoked after the component is rerendered i.e. this function gets invoked once after the render() function is executed after the updation of State or Props.
+ 
+ - **Unmount**:- 
+  - componentWillUnmount() Function: This function is invoked before the component is finally unmounted from the DOM i.e. this function gets invoked once before the component is removed from the page and this denotes the end of the lifecycle.
+  
+  
+# Q - 5 Difference between props vs propTypes
 
 
 
